@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&family=Righteous&display=swap');
+
+:root
+{
+    --preta: #2c8323;
+    --cinza-claro:  #f1f3f2;
+    --cinza-escuro: #262020;
+    --amarela: #eeff00;
+    --vermelho: #ff0000;
+    --branco: #ffffff;
+}
+
+/* Elemento base */
+body {
+    background-color: var(--cinza-claro);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+}
+
+header {
+    font-family: 'Righteous', cursive;
+    background-color: var(--cinza-escuro);
+    color: var(--cinza-claro);
+    padding: 8px;
+    display: flex;
+}
+
+.logo {
+    background-color: var(--cinza-claro);
+    border-radius: 500px;
+    padding: 4px 8px;
+    color: var(--cinza-escuro);
+}
+
+header h4 {
+    margin: 0;
+}
+
+.logo-detail {
+    color: var(--vermelho);
+}
+
+.div-form {
+    padding: 150px 20px;
+    background: linear-gradient(rgba(0,0,0,.75), rgba(239,227,0,.3), rgba(0,0,0,.75)), url('background_Menu.png') no-repeat center center;
+
+}
+
+.result {
+    margin: 30px 0;
+    display: none;
+}
+
+.space-right{
+    margin-right: 15px;
+}
+
+.space-bottom{
+    margin-bottom: 30px;
+}
+
+.login{
+    margin-left: 70%;
+    margin-top: 10px;
+}
