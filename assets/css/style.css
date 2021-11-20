@@ -63,3 +63,7 @@ header h4 {
     margin-left: 70%;
     margin-top: 10px;
 }
+
+#info_carro {
+    display: none;
+}

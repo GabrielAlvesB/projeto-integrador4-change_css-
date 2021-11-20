@@ -4,6 +4,7 @@ var estado = $('#estadoBrasil');
 var ano = $('#anoMinimo, #anoMaximo');
 var preco = $('#valorMinimo, #valorMaximo');
 var km = $('#kmMinimo, #kmMaximo');
+var target = null;
 
 //init
 preencheElementos(db.ano, ano);
@@ -32,6 +33,11 @@ function formatValue(value) {
     return `R$ ${text.charAt(0)}${text.charAt(1)}.${text.charAt(2)}${text.charAt(3)}${text.charAt(4)},00`;
 }
 
+function getCardId(element){
+    // console.log(event)
+    target = element;
+}
+
 function exibeCarros(list) {
     var template = '';
     $("#count").html(list.length);
@@ -41,13 +47,14 @@ function exibeCarros(list) {
 
         template += `
         <div class="col">
-            <div class="card text-dark bg-light h-100" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <div class="card text-dark bg-light h-100" onclick="getCardId(this)" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 <img src="${image}" class="card-img-top" alt="${item.modelo}">
                 <div class="card-body">
                     <h5 class="card-title">${item.marca} - ${item.modelo}</h5>
                     <h6 class="card-title">${formatValue(item.preco)}</h6>
                     <h6 class="card-title">Km: ${(item.km)}</h6>
                     <p class="card-text">Ano: ${item.ano}</p>
+                    <span id="info_carro">${JSON.stringify(item)}</span>
                 </div>
                 <div class="card-footer">
                     <small class="text-muted">Estado: ${item.estado}</small>
