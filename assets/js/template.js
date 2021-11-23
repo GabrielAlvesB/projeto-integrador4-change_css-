@@ -34,7 +34,6 @@ function formatValue(value) {
 }
 
 function getCardId(element){
-    // console.log(event)
     target = element;
 }
 
@@ -47,7 +46,7 @@ function exibeCarros(list) {
 
         template += `
         <div class="col">
-            <div class="card text-dark bg-light h-100" onclick="getCardId(this)" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <div class="card text-dark bg-light h-100" id="${item.id}" onclick="getCardId(this)" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 <img src="${image}" class="card-img-top" alt="${item.modelo}">
                 <div class="card-body">
                     <h5 class="card-title">${item.marca} - ${item.modelo}</h5>
@@ -71,4 +70,22 @@ function exibeCarros(list) {
         $('#cardGroup').html(template);
         $('#not_found').html('')
     }
+}
+
+function exibeConteudoModal(obj){
+    template = `
+    <div class="card mb-2">
+        <img src="${obj.img}" class="img-fluid rounded-start" alt="${obj.modelo}">
+        <div class="card-body">
+            <p class="card-text">Km: ${obj.km}</p>
+            <p class="card-text">Ano: ${obj.ano}</p>
+            <p class="card-text">${obj.cidade} / ${obj.estado}</p>
+            <p class="card-text">Vendedor: ${obj.nome}</p>
+            <h5 class="card-title">${formatValue(obj.preco)}</h5>
+            
+        </div>
+    </div>
+    `;
+    $("#modal_body").html(template)
+
 }

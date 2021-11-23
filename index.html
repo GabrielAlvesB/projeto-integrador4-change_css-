@@ -116,15 +116,12 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Select Car</h5>
+                    <h5 class="modal-title" id="exampleModalLabel"></h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body" id="modal_body">
-                    ...
-                </div>
+                <div class="modal-body" id="modal_body"></div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
@@ -137,8 +134,11 @@
     <script>
         var myModalEl = document.getElementById('exampleModal')
         myModalEl.addEventListener('shown.bs.modal', function (event) {
-            var carro = target
-            console.log(target)
+            var carro = JSON.parse(document.getElementById(`${target.id}`).getElementsByTagName(`span`)[0].innerText);
+            carro.img = document.getElementById(`${target.id}`).getElementsByTagName(`img`)[0].src;
+            $("#exampleModalLabel").html(`${carro.marca} - ${carro.modelo}`)
+            exibeConteudoModal(carro)
+            console.log(carro);
         })
     </script>
 </body>
